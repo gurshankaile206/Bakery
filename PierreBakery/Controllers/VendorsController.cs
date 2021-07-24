@@ -32,10 +32,10 @@ namespace PierreBakery.Controllers
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Category selectedCategory = Vendor.Find(id);
-      List<Order> VendorOrders = selectedVendor.Orders;
+      Vendor selectedVendor = Vendor.Find(id);
+      List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("vendor", selectedVendor);
-      model.Add("orders", categoryOrders);
+      model.Add("orders", vendorOrders);
       return View(model);
     }
 
@@ -48,7 +48,7 @@ namespace PierreBakery.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
       Order newOrder = new Order(orderDescription);
-      foundVendor.AddItem(newOrder);
+      foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
       model.Add("vendor", foundVendor);

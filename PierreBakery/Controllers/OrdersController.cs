@@ -10,7 +10,7 @@ namespace PierreBakery.Controllers
     [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
-      Vendor vendor = vendor.Find(vendorId);
+      Vendor vendor = Vendor.Find(vendorId);
       return View(vendor);
     }
 
