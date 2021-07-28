@@ -63,7 +63,7 @@ namespace PierreBakery.Tests
       List<Vendor> result = Vendor.GetAll();
 
       //Assert
-      CollectionAssert.AreEqual(newVendor, result);
+      CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
@@ -83,12 +83,15 @@ namespace PierreBakery.Tests
     }
 
     [TestMethod]
-    public void AddOrder_AssociatesItemWithVendor_OrderList()
+    public void AddOrder_AssociateOrderWithVendor_OrderList()
     {
       //Arrange
       string description = "cupcakes";
-      Order newOrder = new Order(description);
-      List<Order> newOrder = new List<Order> { newOrder };
+      string title = "Cupcake Order";
+      string price = "50 dollars";
+      string date = "09-12-2020";
+      Order newOrder = new Order(description, title, price, date);
+      List<Order> newList = new List<Order> { newOrder };
       string name = "Susie's";
       Vendor newVendor = new Vendor(name);
       newVendor.AddOrder(newOrder);

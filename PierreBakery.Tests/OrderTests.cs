@@ -46,7 +46,10 @@ namespace PierreBakery.Tests
     {
       //Arrange
       string description = "a lot of orders.";
-      Order newItem = new Order(description);
+      string title = "15 cupcakes";
+      string price = "12 dollars";
+      string date = "06-15-2021";
+      Order newOrder = new Order(description, title, price, date);
 
       //Act
       string updatedDescription = "need order asap";
@@ -67,7 +70,7 @@ namespace PierreBakery.Tests
       List<Order> result = Order.GetAll();
 
       // Assert
-      CollectionAssert.AreEqual(newList, result);
+      CollectionAssert.AreEqual(newOrder, result);
     }
 
     [TestMethod]
@@ -76,15 +79,21 @@ namespace PierreBakery.Tests
       //Arrange
       string description01 = "a lot of orders";
       string description02 = "too many orders";
-      Order newOrder1 = new Order(description01);
-      Order newOrder2 = new Order(description02);
+      string title01 = "15 cupcakes";
+      string title02 = "30 cupcakes";
+      string price01 = "12 dollars";
+      string price02 = "30 dollars";
+      string date01= "06-15-2021";
+      string date02 = "09-12-2020";
+      Order newOrder1 = new Order(description01, title01, price01, date01);
+      Order newOrder2 = new Order(description02, title02, price02, date02);
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
 
       //Act
       List<Order> result = Order.GetAll();
 
       //Assert
-      CollectionAssert.AreEqual(newOrder, result);
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
