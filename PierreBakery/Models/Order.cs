@@ -6,13 +6,22 @@ namespace PierreBakery.Models
   {
     public string Description { get; set; }
 
+    public string Title { get; set; }
+
+    public string Price { get; set; }
+
+    public string Date { get; set; }
+
     public int Id { get; }
 
     private static List<Order> _instances = new List<Order> { };
 
-    public Order(string description)
+    public Order(string description, string title, string price, string date)
     {
       Description = description;
+      Title = title;
+      Date = date; 
+      Price = price;
       _instances.Add(this);
       Id = _instances.Count;
     }
