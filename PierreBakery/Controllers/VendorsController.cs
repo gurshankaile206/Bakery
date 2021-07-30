@@ -42,7 +42,7 @@ namespace PierreBakery.Controllers
 
     
 
-    [HttpPost("/vendors/{vendorId}/items")]
+    [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string description, string title, string date, string price )
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
